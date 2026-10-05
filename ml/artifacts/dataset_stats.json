@@ -1,0 +1,53 @@
+{
+  "dataset_name": "Breast Ultrasound Images Dataset (BUSI)",
+  "source": "Al-Dhabyani W, Gomaa M, Khaled H, Fahmy A. Dataset of breast ultrasound images. Data in Brief, 2020. https://doi.org/10.1016/j.dib.2019.104863 (Kaggle mirror: aryashah2k/breast-ultrasound-images-dataset)",
+  "license_note": "BUSI is publicly available for research use. Check the Kaggle page and the original paper for the current license/citation terms before redistributing.",
+  "total_images": 779,
+  "num_classes": 3,
+  "class_names": [
+    "Benign",
+    "Malignant",
+    "Normal"
+  ],
+  "class_distribution": {
+    "Benign": 437,
+    "Malignant": 209,
+    "Normal": 133
+  },
+  "split_sizes": {
+    "train": 545,
+    "val": 117,
+    "test": 117
+  },
+  "split_distribution": {
+    "train": {
+      "Benign": 305,
+      "Malignant": 147,
+      "Normal": 93
+    },
+    "val": {
+      "Benign": 66,
+      "Malignant": 31,
+      "Normal": 20
+    },
+    "test": {
+      "Benign": 66,
+      "Malignant": 31,
+      "Normal": 20
+    }
+  },
+  "split_strategy": "Stratified 70/15/15 (train/val/test), seed 42",
+  "image_size_original": {
+    "width_min": 190,
+    "width_max": 1048,
+    "width_median": 564,
+    "height_min": 310,
+    "height_max": 719,
+    "height_median": 474
+  },
+  "cleaning": {
+    "mask_files_ignored": 798,
+    "corrupt_files_skipped": 0,
+    "exact_duplicates_removed": 1
+  }
+}

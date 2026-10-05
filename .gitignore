@@ -1,0 +1,23 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+.env
+
+# Node
+node_modules/
+dist/
+frontend/.env
+frontend/.env.local
+
+# Dataset (large, downloaded separately) and trained weights
+ml/dataset/*
+!ml/dataset/README.md
+ml/artifacts/*.pt
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

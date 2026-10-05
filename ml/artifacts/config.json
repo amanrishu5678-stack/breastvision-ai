@@ -1,0 +1,46 @@
+{
+  "model_name": "EfficientNet-B0",
+  "model_version": "1.0",
+  "framework": "PyTorch 2.14.0+cpu",
+  "pretrained_weights": "ImageNet (torchvision EfficientNet_B0_Weights.DEFAULT)",
+  "dataset_name": "Breast Ultrasound Images Dataset (BUSI)",
+  "num_classes": 3,
+  "class_names": [
+    "Benign",
+    "Malignant",
+    "Normal"
+  ],
+  "image_size": 224,
+  "mean": [
+    0.485,
+    0.456,
+    0.406
+  ],
+  "std": [
+    0.229,
+    0.224,
+    0.225
+  ],
+  "seed": 42,
+  "batch_size": 16,
+  "epochs_head": 5,
+  "epochs_finetune": 15,
+  "lr_head": 0.001,
+  "lr_finetune": 0.0001,
+  "optimizer": "AdamW (weight decay 1e-4)",
+  "loss": "Cross-entropy with inverse-frequency class weights",
+  "class_weights": [
+    0.5956,
+    1.2358,
+    1.9534
+  ],
+  "augmentation": "Random horizontal flip, rotation up to 10 degrees, brightness/contrast jitter 0.2 (training only)",
+  "preprocessing": "Resize to 224x224, scale to [0,1], ImageNet mean/std normalization",
+  "best_epoch": 14,
+  "best_val_loss": 0.36374,
+  "epochs_run": 19,
+  "device": "cpu",
+  "num_parameters": 4011391,
+  "training_seconds": 394.8,
+  "trained_at": "2026-09-29T08:36:32.785512+00:00"
+}
