@@ -2,7 +2,7 @@ import React, { useMemo, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles.css'
 
-const API = 'http://127.0.0.1:5000'
+const API = 'https://aman-jordan-breastvision-api.onrender.com'
 
 function App() {
   const inputRef = useRef(null)
