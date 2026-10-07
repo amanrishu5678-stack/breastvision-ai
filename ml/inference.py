@@ -60,8 +60,10 @@ class Predictor:
         self.model.to(self.device)
         self.model.eval()
 
+        inference_size = 160
+
         self.transform = build_transforms(
-            self.config["image_size"],
+            inference_size,
             self.config["mean"],
             self.config["std"],
             train=False,
