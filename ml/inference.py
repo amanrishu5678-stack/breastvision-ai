@@ -59,6 +59,7 @@ class Predictor:
         self.model.load_state_dict(state)
         self.model.to(self.device)
         self.model.eval()
+        self.model.requires_grad_(False)
 
         inference_size = 160
 
@@ -118,7 +119,14 @@ class Predictor:
     def _forward_with_cam(self, x):
         """Grad-CAM on EfficientNet-B0's final convolutional feature map."""
 
-        feats = self.model.features(x)
+        # Extract the feature map without storing the entire
+        # EfficientNet feature-extractor computation graph.
+        with torch.no_grad():
+            feats = self.model.features(x)
+
+        # Grad-CAM only needs gradients with respect to this final
+        # feature map, so detach it and build a tiny graph from here.
+        feats = feats.detach().requires_grad_(True)
 
         logits = self.model.classifier(
             torch.flatten(
