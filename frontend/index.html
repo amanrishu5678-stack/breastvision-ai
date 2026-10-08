@@ -2,12 +2,36 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <meta name="theme-color" content="#07090d" />
+
     <title>BreastVision AI — Research Console</title>
+
+    <!-- Remove referral tracking parameters from the visible URL -->
+    <script>
+      (function () {
+        const url = new URL(window.location.href);
+
+        if (url.searchParams.has("utm_source")) {
+          url.searchParams.delete("utm_source");
+
+          const cleanUrl =
+            url.pathname +
+            (url.search ? url.search : "") +
+            (url.hash ? url.hash : "");
+
+          window.history.replaceState({}, document.title, cleanUrl);
+        }
+      })();
+    </script>
   </head>
+
   <body>
     <div id="root"></div>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
