@@ -33,8 +33,18 @@ def create_app(model_service: ModelService | None = None) -> Flask:
 
     if model_service is None:
         model_service = ModelService()
-        model_service.load()  # once, at startup - never retrains
     service = model_service
+
+    # Load the model in a background thread so Gunicorn can
+    # open the Render port immediately.
+    import threading
+
+    if not service.loaded:
+        threading.Thread(
+            target=service.load,
+            daemon=True,
+            name="model-loader",
+        ).start()
 
     @app.get("/api/health")
     def health():
